@@ -23,6 +23,7 @@ a:hover {
 }
 
 body {
+  background: url('https://media1.tenor.com/m/i0jurz_PMSEAAAAd/dark-galaxy.gif')no-repeat center / cover;
   margin: 0;
   display: flex;
   flex-direction: column;

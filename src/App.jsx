@@ -67,6 +67,7 @@ function App() {
         setNome("");
         setEmail("");
         setTelefone("");
+        setIsValid("");
       } catch (error) {
         console.error("Erro ao enviar dados:", error.message);
       }
@@ -115,6 +116,7 @@ function App() {
       setNome("");
       setEmail("");
       setTelefone("");
+      setIsValid("");
     } catch (error) {
       console.error("nao foi possivelatualizar dados", error.message);
     }
