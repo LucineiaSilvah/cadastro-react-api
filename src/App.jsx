@@ -186,7 +186,8 @@ function App() {
         {loading ? (
           <p>carregando</p>
         ) : (
-          <ul>
+         <div className="result">
+           <ul>
             {data.map((user) => (
               <li key={user.id}>
                 {user.nome.toUpperCase()}
@@ -217,6 +218,7 @@ function App() {
               </li>
             ))}
           </ul>
+         </div>
         )}{" "}
       </main>
     </>

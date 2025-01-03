@@ -67,20 +67,31 @@ h2,h3{
   text-align: center;
 }
 ul{
-  margin:  0 auto;
- width: 80% ;
   display: flex;
+  margin: auto;
   flex-wrap: wrap;
- justify-content: center;
+ width: 80%;
+ margin: 0;
+ padding: 0;
   list-style: none;
 }
+.result{
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+hr{
+  border-color:#646cff;
+}
 li{
+  width: 80%;
 border-radius: 5px;
  padding: 5px;
  color: black;
  background: #fafafa;
   border: 3px solid #646cff;
- margin: 10px;
+ margin:15px  auto;
  box-shadow: -2px 4px 8px;
 }
 button {
