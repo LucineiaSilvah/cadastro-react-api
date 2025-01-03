@@ -29,6 +29,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 main{
   width: 100vw;
@@ -78,7 +79,7 @@ border-radius: 5px;
  color: black;
  background: #fafafa;
   border: 3px solid #646cff;
- margin: 10px 0;
+ margin: 10px;
  box-shadow: -2px 4px 8px;
 }
 button {
