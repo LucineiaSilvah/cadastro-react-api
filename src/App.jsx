@@ -113,6 +113,7 @@ function App() {
       </header>
 
       <h3>cadastrar usuario</h3>
+      <main>
       <form>
         <label htmlFor="nome"> Nome </label>
 
@@ -157,7 +158,7 @@ function App() {
         </button>
       </form>
 
-      <main>
+    
         <div className="amostra">
           <h5>dados a serem enviados</h5>
           nome: {nome} <br />

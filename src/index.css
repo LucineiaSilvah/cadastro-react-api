@@ -30,6 +30,11 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+main{
+  width: 100vw;
+  margin: auto;
+ overflow: hidden;
+}
 .amostra{
   width: 80%;
   margin: auto;
@@ -60,7 +65,8 @@ h2,h3{
   text-align: center;
 }
 ul{
-  width: 500px;
+  margin:  0 auto;
+ width: 80% ;
   display: flex;
   flex-wrap: wrap;
  justify-content: center;
@@ -72,7 +78,7 @@ border-radius: 5px;
  color: black;
  background: #fafafa;
   border: 3px solid #646cff;
- margin: 10px;
+ margin: 10px 0;
  box-shadow: -2px 4px 8px;
 }
 button {
