@@ -8,9 +8,19 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
+  const [isValid, setIsValid] = useState(null);
   const [telefone, setTelefone] = useState("");
   const [id, setId] = useState("");
   const inputRef = useRef(null);
+  const validateEmail = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  };
+
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+    setIsValid(validateEmail(email));
+  };
 
   //funcao para buscar api
   useEffect(() => {
@@ -32,33 +42,37 @@ function App() {
 
   const enviarDados = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          nome: nome,
-          email: email,
-          telefone: telefone,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Erro na requisição: ${response.status}`);
+    if(isValid === true){
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nome: nome,
+            email: email,
+            telefone: telefone,
+          }),
+        });
+  
+        if (!response.ok) {
+          throw new Error(`Erro na requisição: ${response.status}`);
+        }
+  
+        const data = await response.json();
+        console.log("Dados enviados com sucesso:", data);
+        // Atualiza a lista de usuários após o envio
+        setData((prevData) => [...prevData, data]);
+        setNome("");
+        setEmail("");
+        setTelefone("");
+      } catch (error) {
+        console.error("Erro ao enviar dados:", error.message);
       }
-
-      const data = await response.json();
-      console.log("Dados enviados com sucesso:", data);
-      // Atualiza a lista de usuários após o envio
-      setData((prevData) => [...prevData, data]);
-      setNome("");
-      setEmail("");
-      setTelefone("");
-    } catch (error) {
-      console.error("Erro ao enviar dados:", error.message);
     }
+    
+    
   };
 
   const deleteUser = async (id) => {
@@ -131,18 +145,18 @@ function App() {
         <input
           type="text"
           placeholder="digite seu email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
+          onChange={handleChange}
           value={email}
         />
-
+ {isValid === false && <p style={{ color: "red" }}>Email invalido</p>}
+ {isValid === true && <p style={{ color: "green" }}>Email valido</p>}
         <label htmlFor="nome">telefone </label>
         <input
           type="telefone"
           placeholder="digite seu telefone"
           onChange={(e) => {
             setTelefone(e.target.value);
+
           }}
           value={telefone}
         />
